@@ -1325,7 +1325,7 @@ void sendRulePacket(snortRule* rule, std::string host,bool verbose){
 	long usedPort;
 	result = curl_easy_getinfo(handle, CURLINFO_LOCAL_PORT, &usedPort);
 	if(result==CURLE_OK) {
-		printf("Local port used for this request: %ld\n", usedPort);
+                printf("%ld:%s\n",usedPort,rule->body.sid.c_str());
 	}else{
 		printf("Failure in getting local port\n");
 	}
